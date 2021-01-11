@@ -4,6 +4,7 @@ namespace NomadicSoft\EditionGuard;
 
 use finfo;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Http;
 
 class EditionGuard
@@ -85,6 +86,7 @@ class EditionGuard
      *
      * @param int $id
      * @return mixed
+     * @throws GuzzleException
      */
     public function getBook(int $id)
     {
@@ -102,6 +104,7 @@ class EditionGuard
      *
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
      */
     public function getBooks(array $optional = [])
     {
@@ -124,6 +127,7 @@ class EditionGuard
      * @param string $resource
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
      */
     public function saveBook(string $title, string $resource, array $optional = [])
     {
@@ -159,6 +163,7 @@ class EditionGuard
      * @param string $resource
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
      */
     public function updateBook(int $id, string $title, string $resource, array $optional = [])
     {
@@ -188,6 +193,7 @@ class EditionGuard
      *
      * @param int $id
      * @return mixed
+     * @throws GuzzleException
      */
     public function deleteBook(int $id): bool
     {
@@ -207,6 +213,7 @@ class EditionGuard
      * @param int $id
      * @param int $count
      * @return mixed
+     * @throws GuzzleException
      */
     public function generateBookLinks(int $id, int $count)
     {
@@ -231,6 +238,7 @@ class EditionGuard
      * @param string $email
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
      */
     public function deliverBookLink(string $resourceId, string $email, array $optional = [])
     {
@@ -252,12 +260,13 @@ class EditionGuard
      * Emails the provided address with a download link for the eBook specified by its resource_id.
      * Full name is not required but recommended as it is shown in the e-mail when provided.
      *
-     * @example [['resource_id' => 'urn:uuid:cf5475bd-ac2a-4443-9809-71fd8211fd65', 'quantity' => 3]]
-     *
      * @param array $bookList
      * @param string $email
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
+     * @example [['resource_id' => 'urn:uuid:cf5475bd-ac2a-4443-9809-71fd8211fd65', 'quantity' => 3]]
+     *
      */
     public function deliverBookLinks(array $bookList, string $email, array $optional = [])
     {
@@ -281,6 +290,7 @@ class EditionGuard
      *
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
      */
     public function download(array $optional = []): array
     {
@@ -298,6 +308,7 @@ class EditionGuard
      *
      * @param string $id
      * @return mixed
+     * @throws GuzzleException
      */
     public function getTransaction(string $id)
     {
@@ -315,6 +326,7 @@ class EditionGuard
      *
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
      */
     public function getTransactions(array $optional = [])
     {
@@ -335,6 +347,7 @@ class EditionGuard
      * @param string $resourceId
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
      */
     public function createTransaction(string $resourceId, array $optional = [])
     {
@@ -367,6 +380,7 @@ class EditionGuard
      * @param string $usesRemaining
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
      */
     public function updateTransaction(
         string $id,
@@ -409,6 +423,7 @@ class EditionGuard
      *
      * @param string $id
      * @return mixed
+     * @throws GuzzleException
      */
     public function deleteTransaction(string $id)
     {
@@ -426,6 +441,7 @@ class EditionGuard
      *
      * @param string $id
      * @return mixed
+     * @throws GuzzleException
      */
     public function getMasterLink(string $id)
     {
@@ -442,6 +458,7 @@ class EditionGuard
      * Get a list of all master links on an account.
      *
      * @return mixed
+     * @throws GuzzleException
      */
     public function getMasterLinks()
     {
@@ -461,6 +478,7 @@ class EditionGuard
      * @param string $resourceId
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
      */
     public function createMasterLink(string $resourceId, array $optional = [])
     {
@@ -484,6 +502,7 @@ class EditionGuard
      * @param string $resourceId
      * @param array $optional
      * @return mixed
+     * @throws GuzzleException
      */
     public function updateMasterLink(string $id, string $resourceId, array $optional = [])
     {
@@ -505,6 +524,7 @@ class EditionGuard
      *
      * @param string $id
      * @return mixed
+     * @throws GuzzleException
      */
     public function deleteMasterLink(string $id)
     {
