@@ -19,5 +19,7 @@
     "psr-4": {
       "NomadicSoft\\": "src"
     }
-  }
+  },
+  "minimum-stability": "stable",
+  "license": "proprietary"
 }
