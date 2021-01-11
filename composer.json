@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": ">=7.0.0",
-    "guzzlehttp/guzzle": "6.5.0",
+    "guzzlehttp/guzzle": "6.5",
     "ext-fileinfo": "*"
   },
   "description": "Edition guard REST api implementation.",
