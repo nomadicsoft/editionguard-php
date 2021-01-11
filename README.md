@@ -21,10 +21,10 @@ $editionGuard->getBooks();
 ```sh
 You can do this things if you want to access an api via Laravels Facade class.
 
-Publish configs.
+# Publish configs.
 $ php artisan vendor:publish --provider=NomadicSoft\Laravel\Providers\EditionGuardServiceProvider
-Add to .env
-"EDITION_GUARD_API_TOKEN=YOUR_TOKEN"
+# Add to .env
+EDITION_GUARD_API_TOKEN="YOUR_TOKEN"
 
 Now you can use the Facade class "NomadicSoft\Laravel\Facades\EditionGuard" to access Edition Guard api.
 
