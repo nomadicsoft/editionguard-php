@@ -4,6 +4,7 @@
 namespace NomadicSoft\Laravel\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use NomadicSoft\EditionGuard\EditionGuard;
 
 class EditionGuardServiceProvider extends ServiceProvider
 {
@@ -14,8 +15,8 @@ class EditionGuardServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(\NomadicSoft\EditionGuard\EditionGuard::class, function () {
-            return new \NomadicSoft\EditionGuard\EditionGuard(config('edition-guard.api_key'));
+        $this->app->bind(EditionGuard::class, function () {
+            return new EditionGuard(config('edition-guard.api_token'));
         });
     }
 
