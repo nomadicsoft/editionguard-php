@@ -2,7 +2,7 @@
 
 [![N|Solid](https://i1.wp.com/nomadicsoft.io/wp-content/uploads/2019/11/logo.png?w=467&ssl=1)](https://nomadicsoft.io/)
 
-This package implements [Edition Guard](editionguard.com)\'s REST api.
+This package implements [Edition Guard](https://editionguard.com)\'s REST api.
 
 ### Installation
 ```sh
