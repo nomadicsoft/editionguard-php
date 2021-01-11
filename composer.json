@@ -2,7 +2,7 @@
   "name": "nomadicsoft/edition-guard",
   "homepage": "https://github.com/nomadicsoft/editionguard-php",
   "type": "library",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "authors": [
     {
       "name": "Alex Hovhannisyan",
@@ -12,7 +12,8 @@
   "require": {
     "php": ">=7.0.0",
     "guzzlehttp/guzzle": ">=6.5",
-    "ext-fileinfo": "*"
+    "ext-fileinfo": "*",
+    "ext-json": "*"
   },
   "description": "Edition guard REST api implementation.",
   "autoload": {
@@ -21,5 +22,15 @@
     }
   },
   "minimum-stability": "stable",
-  "license": "proprietary"
+  "license": "MIT",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "NomadicSoft\\Laravel\\Providers\\EditionGuardServiceProvider"
+      ],
+      "aliases": {
+        "EditionGuard": "NomadicSoft\\Laravel\\Facades\\EditionGuard"
+      }
+    }
+  }
 }

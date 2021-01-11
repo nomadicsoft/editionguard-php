@@ -88,11 +88,13 @@ class EditionGuard
      */
     public function getBook(int $id)
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->get("book/{$id}")
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -103,11 +105,13 @@ class EditionGuard
      */
     public function getBooks(array $optional = [])
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->get('book', ['query' => $optional])
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -123,7 +127,7 @@ class EditionGuard
      */
     public function saveBook(string $title, string $resource, array $optional = [])
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->post('book', array_merge([
                 'multipart' => [
@@ -140,6 +144,8 @@ class EditionGuard
             ], $optional))
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -156,7 +162,7 @@ class EditionGuard
      */
     public function updateBook(int $id, string $title, string $resource, array $optional = [])
     {
-        return $this
+        $response =  $this
             ->httpClient()
             ->patch("book/$id", array_merge([
                 'multipart' => [
@@ -173,6 +179,8 @@ class EditionGuard
             ], $optional))
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -183,11 +191,13 @@ class EditionGuard
      */
     public function deleteBook(int $id): bool
     {
-        return $this
+        $response =  $this
             ->httpClient()
             ->delete("book/{$id}")
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -200,7 +210,7 @@ class EditionGuard
      */
     public function generateBookLinks(int $id, int $count)
     {
-        return $this
+        $response =  $this
             ->httpClient()
             ->post("book/{$id}/generate_links", [
                 'query' => [
@@ -209,6 +219,8 @@ class EditionGuard
             ])
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -222,7 +234,7 @@ class EditionGuard
      */
     public function deliverBookLink(string $resourceId, string $email, array $optional = [])
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->post('deliver-book-link', [
                 'query' => array_merge([
@@ -232,6 +244,8 @@ class EditionGuard
             ])
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -247,7 +261,7 @@ class EditionGuard
      */
     public function deliverBookLinks(array $bookList, string $email, array $optional = [])
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->post('deliver-book-links', [
                 'query' => array_merge([
@@ -257,6 +271,8 @@ class EditionGuard
             ])
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -268,11 +284,13 @@ class EditionGuard
      */
     public function download(array $optional = []): array
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->get('download', ['query' => $optional])
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -283,11 +301,13 @@ class EditionGuard
      */
     public function getTransaction(string $id)
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->get("transaction/{$id}")
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -298,11 +318,13 @@ class EditionGuard
      */
     public function getTransactions(array $optional = [])
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->get('transaction', ['query' => $optional])
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -316,7 +338,7 @@ class EditionGuard
      */
     public function createTransaction(string $resourceId, array $optional = [])
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->post('transaction', [
                 'query' => array_merge([
@@ -325,6 +347,8 @@ class EditionGuard
             ])
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -358,7 +382,7 @@ class EditionGuard
         string $usesRemaining,
         array $optional = [])
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->put("transaction/{$id}", [
                 'query' => array_merge([
@@ -376,6 +400,8 @@ class EditionGuard
             ])
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -386,11 +412,13 @@ class EditionGuard
      */
     public function deleteTransaction(string $id)
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->delete("transaction/{$id}")
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -401,11 +429,13 @@ class EditionGuard
      */
     public function getMasterLink(string $id)
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->get("master_link/{$id}")
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -415,11 +445,13 @@ class EditionGuard
      */
     public function getMasterLinks()
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->get('master_link')
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -432,7 +464,7 @@ class EditionGuard
      */
     public function createMasterLink(string $resourceId, array $optional = [])
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->post('master_link', [
                 'query' => array_merge([
@@ -441,6 +473,8 @@ class EditionGuard
             ])
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -453,7 +487,7 @@ class EditionGuard
      */
     public function updateMasterLink(string $id, string $resourceId, array $optional = [])
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->patch("master_link/{$id}", [
                 'query' => array_merge([
@@ -462,6 +496,8 @@ class EditionGuard
             ])
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
@@ -472,11 +508,13 @@ class EditionGuard
      */
     public function deleteMasterLink(string $id)
     {
-        return $this
+        $response = $this
             ->httpClient()
             ->delete("master_link/{$id}")
             ->getBody()
             ->getContents();
+
+        return json_decode($response, true);
     }
 
     /**
