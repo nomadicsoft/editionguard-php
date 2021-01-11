@@ -2,7 +2,15 @@
   "name": "nomadicsoft/edition-guard",
   "homepage": "https://github.com/nomadicsoft/editionguard-php",
   "type": "library",
-  "version": "1.0.10",
+  "version": "1.0.11",
+  "keywords": [
+    "EditionGuard",
+    "Edition Guard",
+    "Laravel Edition Guard",
+    "Edition-Guard",
+    "edition-guard",
+    "editionguard"
+  ],
   "authors": [
     {
       "name": "Alex Hovhannisyan",
