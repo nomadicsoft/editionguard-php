@@ -5,7 +5,6 @@ namespace NomadicSoft\EditionGuard;
 use finfo;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use Illuminate\Support\Facades\Http;
 
 class EditionGuard
 {
