@@ -2,7 +2,7 @@
   "name": "nomadicsoft/edition-guard",
   "homepage": "https://github.com/nomadicsoft/editionguard-php",
   "type": "library",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "authors": [
     {
       "name": "Alex Hovhannisyan",

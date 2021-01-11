@@ -4,6 +4,7 @@ namespace NomadicSoft\EditionGuard;
 
 use finfo;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 
 class EditionGuard
 {
@@ -104,7 +105,7 @@ class EditionGuard
     {
         return $this
             ->httpClient()
-            ->get('book', $optional)
+            ->get('book', ['query' => $optional])
             ->getBody()
             ->getContents();
     }
@@ -116,7 +117,7 @@ class EditionGuard
      * Or maybe your book should only be available on a single user's device.
      *
      * @param string $title
-     * @param $resource
+     * @param string $resource
      * @param array $optional
      * @return mixed
      */
@@ -130,10 +131,12 @@ class EditionGuard
                         'name'     => 'resource',
                         'contents' => $resource,
                         'filename' => 'book.' . $this->getResourceExtension($resource),
-                    ]
+                    ],
                 ],
-                'title' => $title,
-                'drm' => $this->drm,
+                'query' => [
+                    'title' => $title,
+                    'drm' => $this->drm,
+                ]
             ], $optional))
             ->getBody()
             ->getContents();
@@ -147,7 +150,7 @@ class EditionGuard
      *
      * @param int $id
      * @param string $title
-     * @param $resource
+     * @param string $resource
      * @param array $optional
      * @return mixed
      */
@@ -161,10 +164,12 @@ class EditionGuard
                         'name'     => 'resource',
                         'contents' => $resource,
                         'filename' => 'book.' . $this->getResourceExtension($resource),
-                    ]
+                    ],
                 ],
-                'title' => $title,
-                'drm' => $this->drm,
+                'query' => [
+                    'title' => $title,
+                    'drm' => $this->drm,
+                ]
             ], $optional))
             ->getBody()
             ->getContents();
@@ -198,7 +203,9 @@ class EditionGuard
         return $this
             ->httpClient()
             ->post("book/{$id}/generate_links", [
-                'links_count' => $count
+                'query' => [
+                    'links_count' => $count
+                ]
             ])
             ->getBody()
             ->getContents();
@@ -217,10 +224,12 @@ class EditionGuard
     {
         return $this
             ->httpClient()
-            ->post('deliver-book-link', array_merge([
-                'resource_id' => $resourceId,
-                'email' => $email
-            ], $optional))
+            ->post('deliver-book-link', [
+                'query' => array_merge([
+                    'resource_id' => $resourceId,
+                    'email' => $email
+                ], $optional)
+            ])
             ->getBody()
             ->getContents();
     }
@@ -240,10 +249,12 @@ class EditionGuard
     {
         return $this
             ->httpClient()
-            ->post('deliver-book-links', array_merge([
-                'book_list' => $bookList,
-                'email' => $email
-            ], $optional))
+            ->post('deliver-book-links', [
+                'query' => array_merge([
+                    'book_list' => $bookList,
+                    'email' => $email
+                ], $optional)
+            ])
             ->getBody()
             ->getContents();
     }
@@ -259,7 +270,7 @@ class EditionGuard
     {
         return $this
             ->httpClient()
-            ->get('download', $optional)
+            ->get('download', ['query' => $optional])
             ->getBody()
             ->getContents();
     }
@@ -289,7 +300,7 @@ class EditionGuard
     {
         return $this
             ->httpClient()
-            ->get('transaction', $optional)
+            ->get('transaction', ['query' => $optional])
             ->getBody()
             ->getContents();
     }
@@ -307,9 +318,11 @@ class EditionGuard
     {
         return $this
             ->httpClient()
-            ->post('transaction', array_merge([
-                'resource_id' => $resourceId
-            ], $optional))
+            ->post('transaction', [
+                'query' => array_merge([
+                    'resource_id' => $resourceId
+                ], $optional)
+            ])
             ->getBody()
             ->getContents();
     }
@@ -347,18 +360,20 @@ class EditionGuard
     {
         return $this
             ->httpClient()
-            ->put("transaction/{$id}", array_merge([
-                'resource_id' => $resourceId,
-                'show_instructions' => $showInstructions,
-                'watermark_name' => $watermarkName,
-                'watermark_email' => $watermarkEmail,
-                'watermark_phone' => $watermarkPhone,
-                'watermark_place_begin' => $watermarkPlaceBegin,
-                'watermark_place_end' => $watermarkPlaceEnd,
-                'watermark_place_random' => $watermarkPlaceRandom,
-                'watermark_place_random_count' => $watermarkPlaceRandomCount,
-                'uses_remaining' => $usesRemaining
-            ], $optional))
+            ->put("transaction/{$id}", [
+                'query' => array_merge([
+                    'resource_id' => $resourceId,
+                    'show_instructions' => $showInstructions,
+                    'watermark_name' => $watermarkName,
+                    'watermark_email' => $watermarkEmail,
+                    'watermark_phone' => $watermarkPhone,
+                    'watermark_place_begin' => $watermarkPlaceBegin,
+                    'watermark_place_end' => $watermarkPlaceEnd,
+                    'watermark_place_random' => $watermarkPlaceRandom,
+                    'watermark_place_random_count' => $watermarkPlaceRandomCount,
+                    'uses_remaining' => $usesRemaining
+                ], $optional)
+            ])
             ->getBody()
             ->getContents();
     }
@@ -419,9 +434,11 @@ class EditionGuard
     {
         return $this
             ->httpClient()
-            ->post('master_link', array_merge([
-                'resource_id' => $resourceId
-            ], $optional))
+            ->post('master_link', [
+                'query' => array_merge([
+                    'resource_id' => $resourceId
+                ], $optional)
+            ])
             ->getBody()
             ->getContents();
     }
@@ -438,9 +455,11 @@ class EditionGuard
     {
         return $this
             ->httpClient()
-            ->patch("master_link/{$id}", array_merge([
-                'resource_id' => $resourceId
-            ], $optional))
+            ->patch("master_link/{$id}", [
+                'query' => array_merge([
+                    'resource_id' => $resourceId
+                ], $optional)
+            ])
             ->getBody()
             ->getContents();
     }
