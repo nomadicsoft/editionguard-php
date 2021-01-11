@@ -3,7 +3,9 @@
 
 namespace NomadicSoft\Laravel\Providers;
 
-class EditionGuardServiceProvider
+use Illuminate\Support\ServiceProvider;
+
+class EditionGuardServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
