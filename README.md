@@ -6,7 +6,7 @@ This package implements [Edition Guard](https://editionguard.com)\'s REST api.
 
 ### Installation
 ```sh
-$ composer require nomadicsoft/edition-guard
+$ composer require nomadicsoft/editionguard-php
 ```
 
 ### Basic usage
