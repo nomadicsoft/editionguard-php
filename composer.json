@@ -1,15 +1,17 @@
 {
-  "name": "nomadicsoft/edition-guard",
+  "name": "nomadicsoft/editionguard-php",
   "homepage": "https://github.com/nomadicsoft/editionguard-php",
   "type": "library",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "keywords": [
     "EditionGuard",
     "Edition Guard",
     "Laravel Edition Guard",
     "Edition-Guard",
     "edition-guard",
-    "editionguard"
+    "editionguard",
+    "editionguard php",
+    "edition guard php"
   ],
   "authors": [
     {
