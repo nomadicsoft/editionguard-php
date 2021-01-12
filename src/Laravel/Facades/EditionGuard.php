@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @method static getBook(int $id)
  * @method static getBooks(array $optional = [])
- * @method static storeBook(string $title, string $resource, array $optional = [])
+ * @method static saveBook(string $title, string $resource, array $optional = [])
  * @method static updateBook(int $id, string $title, string $resource, array $optional = [])
  * @method static deleteBook(int $id)
  * @method static generateBookLinks(int $id, int $count)
