@@ -194,7 +194,7 @@ class EditionGuard
      * @return mixed
      * @throws GuzzleException
      */
-    public function deleteBook(int $id): bool
+    public function deleteBook(int $id)
     {
         $response =  $this
             ->httpClient()
