@@ -198,11 +198,9 @@ class EditionGuard
     {
         $response =  $this
             ->httpClient()
-            ->delete("book/{$id}")
-            ->getBody()
-            ->getContents();
+            ->delete("book/{$id}");
 
-        return json_decode($response, true);
+        return $response->getStatusCode() === 200;
     }
 
     /**
@@ -248,11 +246,9 @@ class EditionGuard
                     'resource_id' => $resourceId,
                     'email' => $email
                 ], $optional)
-            ])
-            ->getBody()
-            ->getContents();
+            ]);
 
-        return json_decode($response, true);
+        return $response->getStatusCode() === 200;
     }
 
     /**
@@ -276,11 +272,9 @@ class EditionGuard
                     'book_list' => $bookList,
                     'email' => $email
                 ], $optional)
-            ])
-            ->getBody()
-            ->getContents();
+            ]);
 
-        return json_decode($response, true);
+        return $response->getStatusCode() === 200;
     }
 
     /**
@@ -428,11 +422,9 @@ class EditionGuard
     {
         $response = $this
             ->httpClient()
-            ->delete("transaction/{$id}")
-            ->getBody()
-            ->getContents();
+            ->delete("transaction/{$id}");
 
-        return json_decode($response, true);
+        return $response->getStatusCode() === 200;
     }
 
     /**
@@ -529,11 +521,9 @@ class EditionGuard
     {
         $response = $this
             ->httpClient()
-            ->delete("master_link/{$id}")
-            ->getBody()
-            ->getContents();
+            ->delete("master_link/{$id}");
 
-        return json_decode($response, true);
+        return $response->getStatusCode() === 200;
     }
 
     /**
