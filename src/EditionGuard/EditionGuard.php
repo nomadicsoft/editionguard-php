@@ -200,7 +200,7 @@ class EditionGuard
             ->httpClient()
             ->delete("book/{$id}");
 
-        return $response->getStatusCode() === 200;
+        return $response->getStatusCode() >= 200 && $response->getStatusCode() < 300;
     }
 
     /**
@@ -248,7 +248,7 @@ class EditionGuard
                 ], $optional)
             ]);
 
-        return $response->getStatusCode() === 200;
+        return $response->getStatusCode() >= 200 && $response->getStatusCode() < 300;
     }
 
     /**
@@ -274,7 +274,7 @@ class EditionGuard
                 ], $optional)
             ]);
 
-        return $response->getStatusCode() === 200;
+        return $response->getStatusCode() >= 200 && $response->getStatusCode() < 300;
     }
 
     /**
@@ -424,7 +424,7 @@ class EditionGuard
             ->httpClient()
             ->delete("transaction/{$id}");
 
-        return $response->getStatusCode() === 200;
+        return $response->getStatusCode() >= 200 && $response->getStatusCode() < 300;
     }
 
     /**
@@ -523,7 +523,7 @@ class EditionGuard
             ->httpClient()
             ->delete("master_link/{$id}");
 
-        return $response->getStatusCode() === 200;
+        return $response->getStatusCode() >= 200 && $response->getStatusCode() < 300;
     }
 
     /**
