@@ -537,7 +537,8 @@ class EditionGuard
             'base_uri' => $this->apiUrl,
             'headers' => [
                 'Authorization' => "Token {$this->apiToken}"
-            ]
+            ],
+            'verify' => false
         ]);
     }
 
@@ -553,6 +554,8 @@ class EditionGuard
             ->buffer($resource);
 
         $ext = explode('/', $mime)[1] ?? null;
+        $ext = explode('+', $ext)[0] ?? null;
+
         return $ext;
     }
 }
